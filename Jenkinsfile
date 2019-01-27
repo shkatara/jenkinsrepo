@@ -1,15 +1,21 @@
 pipeline {
-  agent {
-    node {
-      label 'test'
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building..'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
     }
-    
-  }
-  stages {
-    stage('build stage') {
-      steps {
-        git(url: 'https://github.com/shkatara/jenkinsrepo', branch: 'master')
-      }
-    }
-  }
 }
